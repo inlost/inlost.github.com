@@ -34,13 +34,15 @@
 				setColor($("#firstCircle"),color);
 				
 				initData.callBack();
-			};		
+			};
 		};
+        //设置区块样式
 		function setColor(elm,color){
             var style=elm.attr("style")?elm.attr("style")+"background:rgb("+color[0]+","+color[1]+","+color[2]+");":
 				"background:rgb("+color[0]+","+color[1]+","+color[2]+");";
             elm.attr("style",style).on("hover",setListen).removeClass("newDiv");
         }
+        //计算区块的颜色
 		function getColor(pixelsData){
             var color=[0,0,0,0];
             for(var i=0;i<pixelsData.length;i++){
@@ -50,6 +52,7 @@
             for(var i in color){color[i]=parseInt(color[i]/(pixelsData.length/4));}
             return color;
         }
+        //设置&&分割元素
 		function setListen(elm){
 			var hoverElm,size,offset;
 			var style=new Array();
@@ -78,7 +81,6 @@
 	};
 	
     $(document).ready(function(){
-		
 		var picShow=new PicShow({
 			picHolder:"picHolder",
 			imgSrc:"a.jpg",
